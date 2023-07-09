@@ -1,11 +1,14 @@
 import Card from '../../components/card/card';
 import RightSection from '../../components/right_section/right_section';
-import Sorting from '../../sorting/sorting';
+import Sorting from '../../components/sorting/sorting';
 import Location from '../../components/location/location';
 import Header from '../../components/header/header';
-import SitiesPlacesText from '../../components/cities_places/cities_places';
 
-function MainPage() {
+type mainPageProps = {
+  rentalOffer: number;
+}
+
+function MainPage({rentalOffer}:mainPageProps) {
 
   return (
     <div>
@@ -20,7 +23,8 @@ function MainPage() {
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
-              <SitiesPlacesText />
+              <h2 className="visually-hidden">Places</h2>
+              <b className="places__found">{rentalOffer}mainP places to stay in Amsterdam</b>
               <Sorting />
               <div className="cities__places-list places__list tabs__content">
                 <Card />

@@ -1,9 +1,13 @@
 import MainPage from '../../pages/main/main';
 
-function App () {
+type appPageProps = {
+  rentalOffer: number;
+}
+
+function App ({rentalOffer}:appPageProps) {
 
   return (
-    <MainPage />
+    <MainPage rentalOffer={rentalOffer} />
   );
 }
 
