@@ -1,9 +1,10 @@
 import FavoritePage from '../../pages/favorite/favorite_page';
 import LoginPage from '../../pages/login/login_page';
 import MainPage from '../../pages/main/main_page';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import OfferPage from '../../pages/offer/offer_page';
 import NotFound from '../../pages/not_found/not_found_page';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 type appPageProps = {
   rentalOffer: number;
