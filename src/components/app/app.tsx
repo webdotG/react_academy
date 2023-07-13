@@ -18,7 +18,7 @@ function App({ rentalOffer }: appPageProps) {
         <Route path='/' element={<LoginPage />} />
         <Route path='/main' element={<MainPage rentalOffer={rentalOffer}/> } />
         <Route path='/favorite' element={<FavoritePage />} />
-        <Route path='/offer' element={<OfferPage />} />
+        <Route path='/offer/:id' element={<OfferPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
