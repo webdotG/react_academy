@@ -19,7 +19,7 @@ function PrivateRoute(props: PrivateRouteProps) {
   return (
     authorizationStatus === AuthorizationStatus.Auth
       ? children
-      : <Navigate to='/login' />
+      : <Navigate to='/' />
   );
 }
 
