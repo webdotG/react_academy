@@ -5,6 +5,7 @@ import OfferPage from '../../pages/offer/offer_page';
 import NotFound from '../../pages/not_found/not_found_page';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PrivateRoute, { AuthorizationStatus } from '../private_route/private_route';
+import TestExample from '../../pages/test_example/text_example';
 
 
 type appPageProps = {
@@ -25,6 +26,7 @@ function App({ rentalOffer }: appPageProps) {
         }
         />
         <Route path='/offer/:id' element={<OfferPage />} />
+        <Route path='/test' element={<TestExample />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
