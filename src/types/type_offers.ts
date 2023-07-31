@@ -1,4 +1,4 @@
-export type Offer = {
+export type typeOffer = {
   id: string;
   images: string[];
   isPremium: boolean;
@@ -13,9 +13,9 @@ export type Offer = {
   goods: string[];
 };
 
-export type OffersList = {
-  id: string;
-  previewImage: string;
+export type typeOffersList = {
+  id: number;
+  image: string;
   price: number;
   isFavorite: boolean;
   rating: number;

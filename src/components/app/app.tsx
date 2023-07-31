@@ -6,19 +6,23 @@ import NotFound from '../../pages/not_found/not_found_page';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PrivateRoute, { AuthorizationStatus } from '../private_route/private_route';
 import TestExample from '../../pages/test_example/text_example';
-
+import { typeOffer, typeOffersList } from '../../types/type_offers';
+import typeReviews from '../../types/type_reviews';
 
 type appPageProps = {
   rentalOffer: number;
+  offers: typeOffer[];
+  offersList: typeOffersList[];
+  reviews: typeReviews[];
 }
 
-function App({ rentalOffer }: appPageProps) {
+function App({ rentalOffer, offersList, reviews,  offers }: appPageProps) {
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginPage />} />
-        <Route path='/main' element={<MainPage rentalOffer={rentalOffer} />} />
+        <Route path='/main' element={<MainPage rentalOffer={rentalOffer} offersList={offersList} />} />
         <Route path='/favorite' element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
             <FavoritePage />

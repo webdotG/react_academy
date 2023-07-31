@@ -1,6 +1,6 @@
-import { Offer } from '../types/type_offers';
+import { typeOffer } from '../types/type_offers';
 
-const mockOffers: Offer[] = [
+const mockOffers: typeOffer[] = [
   {
     id: 'bbb06a0e-3f92-446d-9a68-cb64b5d38e2b',
     images: [
@@ -9,7 +9,7 @@ const mockOffers: Offer[] = [
       'https://13.design.pages.academy/static/hotel/16.jpg',
       'https://13.design.pages.academy/static/hotel/15.jpg',
       'https://13.design.pages.academy/static/hotel/2.jpg',
-      'https://13.design.pages.academy/static/hotel/7.jpg'
+      'https://13.design.pages.academy/static/hotel/7.jpg',
     ],
     isPremium: false,
     title: 'Wood and stone place',
@@ -39,7 +39,7 @@ const mockOffers: Offer[] = [
   {
     id: '57703a5e-6de6-447a-91d4-b88a656ba978',
     images: [
-      https://13.design.pages.academy/static/hotel/15.jpg',
+      'https://13.design.pages.academy/static/hotel/15.jpg',
       'https://13.design.pages.academy/static/hotel/4.jpg',
       'https://13.design.pages.academy/static/hotel/12.jpg',
       'https://13.design.pages.academy/static/hotel/6.jpg',

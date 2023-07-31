@@ -1,6 +1,6 @@
-import { OffersList } from '../types/type_offers';
+import { typeOffersList } from '../types/type_offers';
 
-const mockOffersList: OffersList[] = [
+const mockOffersList: typeOffersList[] = [
   {
     id: 'bbb06a0e-3f92-446d-9a68-cb64b5d38e2b',
     previewImage: 'https://13.design.pages.academy/static/hotel/11.jpg',

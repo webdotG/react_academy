@@ -1,14 +1,27 @@
-import Card from '../../components/card/card';
+import {useState} from 'react';
 import RightSection from '../../components/right_section/right_section';
 import Sorting from '../../components/sorting/sorting';
 import Location from '../../components/location/location';
 import Header from '../../components/header/header';
+import CardList from '../../components/card_list/card_list';
+import { typeOffersList } from '../../types/type_offers';
 
 type mainPageProps = {
   rentalOffer: number;
+  offersList: typeOffersList[];
 }
 
-function MainPage({rentalOffer}:mainPageProps) {
+
+function MainPage({rentalOffer, offersList}:mainPageProps) {
+
+  const [, setSelectedOffer] = useState<typeOffersList | undefined>(undefined);
+
+  const handleListItemHover = (listItemId: number) => {
+    const currentOffer = offersList.find((offer) => (offer.id === listItemId));
+    console.log(currentOffer);
+    setSelectedOffer(currentOffer);
+  };
+
 
   return (
     <div>
@@ -27,11 +40,7 @@ function MainPage({rentalOffer}:mainPageProps) {
               <b className="places__found">{rentalOffer} mainP places to stay in Amsterdam</b>
               <Sorting />
               <div className="cities__places-list places__list tabs__content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                < CardList offersList={offersList} onListCardHover={handleListItemHover} />
               </div>
             </section>
             <div className="cities__right-section">
