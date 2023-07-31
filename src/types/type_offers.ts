@@ -14,7 +14,7 @@ export type typeOffer = {
 };
 
 export type typeOffersList = {
-  id: number;
+  id: string;
   image: string;
   price: number;
   isFavorite: boolean;

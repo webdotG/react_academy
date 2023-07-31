@@ -24,8 +24,8 @@ function App({ rentalOffer, offersList, reviews,  offers }: appPageProps) {
         <Route path='/' element={<LoginPage />} />
         <Route path='/main' element={<MainPage rentalOffer={rentalOffer} offersList={offersList} />} />
         <Route path='/favorite' element={
-          <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-            <FavoritePage />
+          <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+            <FavoritePage offersList={offersList}/>
           </PrivateRoute>
         }
         />

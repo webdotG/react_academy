@@ -10,7 +10,7 @@ function CardList({ offersList, onListCardHover }: CardListProps) {
 
   return (
     <div className="cities__places-list places__list tabs__content">
-      {offersList.map((item, ) => (
+      {offersList.map((item) => (
         <Card
           key={item.id}
           id={item.id}
