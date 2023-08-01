@@ -35,11 +35,7 @@ function Card({ id, image, price, isFavorite, rating, title, type, onListCardHov
       onMouseOver={handleCardOver}
       onMouseOut={handleCardOut}
     >
-      {isFavorite &&
-        (<div className="place-card__mark">
-          <span>Premium</span>
-        </div>)
-      }
+      {isFavorite && (<div className="place-card__mark"><span>Premium</span></div>)}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={image} width="260" height="200" alt="Place image" />

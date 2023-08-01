@@ -16,7 +16,7 @@ type appPageProps = {
   reviews: typeReviews[];
 }
 
-function App({ rentalOffer, offersList, reviews,  offers }: appPageProps) {
+function App({ rentalOffer, offersList, offers, reviews }: appPageProps) {
 
   return (
     <BrowserRouter>
@@ -29,7 +29,7 @@ function App({ rentalOffer, offersList, reviews,  offers }: appPageProps) {
           </PrivateRoute>
         }
         />
-        <Route path='/offer/:id' element={<OfferPage />} />
+        <Route path='/offer/:id' element={<OfferPage offers={offers} reviews={ reviews } />} />
         <Route path='/test' element={<TestExample />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

@@ -1,3 +1,9 @@
+type HostOffer = {
+  name: string;
+  avatarUrl: string;
+  isPro: boolean;
+}
+
 export type typeOffer = {
   id: string;
   images: string[];
@@ -11,6 +17,7 @@ export type typeOffer = {
   maxAdults: number;
   price: number;
   goods: string[];
+  host: HostOffer;
 };
 
 export type typeOffersList = {

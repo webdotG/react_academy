@@ -1,10 +1,10 @@
 import CardList from '../../components/card_list/card_list';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { OffersList } from '../../types/type_offers';
+import { typeOffersList } from '../../types/type_offers';
 
 type favoritePageProps = {
-  offersList: OffersList[];
+  offersList: typeOffersList[];
 };
 
 
