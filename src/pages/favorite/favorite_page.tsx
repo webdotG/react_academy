@@ -1,9 +1,14 @@
-import Card from '../../components/card/card';
-import Footer from '../../components/footer';
+import CardList from '../../components/card_list/card_list';
+import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import { typeOffersList } from '../../types/type_offers';
+
+type favoritePageProps = {
+  offersList: typeOffersList[];
+};
 
 
-function FavoritePage() {
+function FavoritePage({ offersList }: favoritePageProps) {
 
   return (
     <div>
@@ -22,9 +27,7 @@ function FavoritePage() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <Card />
-                  <Card />
-                  <Card />
+                  <CardList offersList={offersList} />
                 </div>
               </li>
             </ul>
