@@ -1,22 +1,24 @@
-import {useState} from 'react';
-import RightSection from '../../components/right_section/right_section';
+import { useState } from 'react';
 import Sorting from '../../components/sorting/sorting';
 import Location from '../../components/location/location';
 import Header from '../../components/header/header';
 import CardList from '../../components/card_list/card_list';
-import { typeOffersList } from '../../types/type_offers';
+import { Map } from '../../components/map/map';
+import { typeOffersList, typeCityOffer } from '../../types/type_offers';
 
 type mainPageProps = {
   rentalOffer: number;
   offersList: typeOffersList[];
+  city: typeCityOffer;
+  offers: typeOffersList[];
 }
 
 
-function MainPage({rentalOffer, offersList}:mainPageProps) {
+function MainPage({ rentalOffer, offersList, offers, city }: mainPageProps) {
 
-  const [, setSelectedOffer] = useState<typeOffersList | undefined>(undefined);
+  const [selectedOffer ,setSelectedOffer] = useState<typeOffersList | undefined>(undefined);
 
-  const handleListItemHover = (listItemId: number) => {
+  const handleListItemHover = (listItemId: string) => {
     const currentOffer = offersList.find((offer) => (offer.id === listItemId));
     console.log(currentOffer);
     setSelectedOffer(currentOffer);
@@ -44,7 +46,9 @@ function MainPage({rentalOffer, offersList}:mainPageProps) {
               </div>
             </section>
             <div className="cities__right-section">
-              <RightSection />
+              <section className="cities__map map">
+                <Map city={city} offers={offers} selectedOffer={selectedOffer} />
+              </section>
             </div>
           </div>
         </div>

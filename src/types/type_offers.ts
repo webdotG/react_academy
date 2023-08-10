@@ -1,4 +1,15 @@
-type HostOffer = {
+export type typeCityOffer = {
+  name: string;
+  location: typeOfferLocation;
+};
+
+export type typeOfferLocation = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+
+export type typeHostOffer = {
   name: string;
   avatarUrl: string;
   isPro: boolean;
@@ -17,7 +28,9 @@ export type typeOffer = {
   maxAdults: number;
   price: number;
   goods: string[];
-  host: HostOffer;
+  host: typeHostOffer;
+  city: typeCityOffer;
+  location: typeOfferLocation;
 };
 
 export type typeOffersList = {
@@ -28,4 +41,6 @@ export type typeOffersList = {
   rating: number;
   title: string;
   type: string;
+  city: typeCityOffer;
+  location: typeOfferLocation;
 }

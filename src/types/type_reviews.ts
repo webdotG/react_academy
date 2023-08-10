@@ -12,4 +12,5 @@ type User = {
   rating: number;
 };
 
-export default typeReviews;
+export default
+typeReviews;
