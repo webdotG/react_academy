@@ -10,7 +10,7 @@ type cardProps = {
   rating: number;
   title: string;
   type: string;
-  onListCardHover: (listItemId: number) => void;
+  onListCardHover: (listItemId: string) => void;
 }
 
 

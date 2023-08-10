@@ -9,15 +9,31 @@ const mockOffersList: typeOffersList[] = [
     rating: 2.9,
     title: 'Wood and stone place',
     type: 'apartment',
+    city: {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.3909553943508,
+        'longitude': 4.85309666406198,
+        'zoom': 13
+      }
+    }
   },
   {
     id: '57703a5e-6de6-447a-91d4-b88a656ba978',
     image: 'https://13.design.pages.academy/static/hotel/3.jpg',
     price: 250,
     isFavorite: false,
-    rating:  0.5,
+    rating: 0.5,
     title: 'House in countryside',
     type: 'room',
+    city: {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.3609553943508,
+        'longitude': 4.85309666406198,
+        'zoom': 13
+      }
+    }
   },
   {
     id: '84aca0ac-48c2-4161-b519-cb1ec03ab7bc',
@@ -25,8 +41,16 @@ const mockOffersList: typeOffersList[] = [
     price: 430,
     isFavorite: true,
     rating: 4.7,
-    title:  'Loft Studio in the Central Area',
+    title: 'Loft Studio in the Central Area',
     type: 'apartment',
+    city: {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.3909553943508,
+        'longitude': 4.929309666406198,
+        'zoom': 13
+      }
+    }
   },
   {
     id: '44f55eca-0519-439b-97ff-9cca72fbd47f',
@@ -34,8 +58,16 @@ const mockOffersList: typeOffersList[] = [
     price: 310,
     isFavorite: false,
     rating: 3.5,
-    title:  'Penthouse, 4-5 rooms + 5 balconies',
+    title: 'Penthouse, 4-5 rooms + 5 balconies',
     type: 'apartment',
+    city: {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.3809553943508,
+        'longitude': 4.939309666406198,
+        'zoom': 13
+      }
+    }
   },
 ];
 
