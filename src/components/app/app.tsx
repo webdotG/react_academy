@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PrivateRoute, { AuthorizationStatus } from '../private_route/private_route';
 import TestExample from '../../pages/test_example/text_example';
 import { typeOffer, typeOffersList, typeCityOffer } from '../../types/type_offers';
-import typeReviews from '../../types/type_reviews';
+import { typeReviews } from '../../types/type_reviews';
 
 type appPageProps = {
   rentalOffer: number;
@@ -30,7 +30,7 @@ function App({ rentalOffer, offersList, offers, reviews, city }: appPageProps) {
           </PrivateRoute>
         }
         />
-        <Route path='/offer/:id' element={<OfferPage offers={offers} reviews={ reviews } />} />
+        <Route path='/offer/:id' element={<OfferPage offers={offers} offersList={ offersList } reviews={ reviews } />} />
         <Route path='/test' element={<TestExample />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

@@ -1,14 +1,15 @@
 import { useRef, useEffect } from 'react';
 import { Icon, Marker, layerGroup } from 'leaflet';
 import { useMap } from '../../hooks/use-map';
-import { typeCityOffer, typeOffersList } from '../../types/type_offers';
+import { typeCityOffer, typeOffer, typeOffersList } from '../../types/type_offers';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 import 'leaflet/dist/leaflet.css';
 
 type MapProps = {
   city: typeCityOffer;
-  offers: typeOffersList[];
-  selectedOffer: typeOffersList | undefined;
+  offers: typeOffersList[] | typeOffer[];
+  selectedOffer: typeOffersList | typeOffer | undefined;
+  block: string;
 };
 
 const defaultCustomIcon = new Icon({
@@ -23,7 +24,7 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({ city, offers, selectedOffer }: MapProps) {
+function Map({block, city, offers, selectedOffer }: MapProps) {
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
@@ -33,8 +34,8 @@ function Map({ city, offers, selectedOffer }: MapProps) {
       const markerLayer = layerGroup().addTo(map);
       offers.forEach((offer) => {
         const marker = new Marker({
-          lat: offer.location.latitude,
-          lng: offer.location.longitude
+          lat: offer.city.location.latitude,
+          lng: offer.city.location.longitude
         });
 
         marker
@@ -52,7 +53,20 @@ function Map({ city, offers, selectedOffer }: MapProps) {
     }
   }, [map, offers, selectedOffer]);
 
-  return <div style={{height: '500px'}} ref={mapRef}></div>;
+  return (
+    <section
+      className={`${block}__map map`}
+      ref={mapRef}
+      style={{
+        height: '100%',
+        minHeight: '500px',
+        width: '100%',
+        maxWidth: '1144px',
+        margin: '0 auto',
+      }}
+    />
+  );
+
 }
 
 export { Map };

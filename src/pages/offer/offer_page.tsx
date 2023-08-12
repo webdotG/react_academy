@@ -1,20 +1,36 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { BlockName } from '../../const';
 import NotFound from '../not_found/not_found_page';
-import Card from '../../components/card/card';
+import CardList from '../../components/card_list/card_list';
 import Header from '../../components/header/header';
 import CommentsForm from '../../components/comments_form/comments_form';
-import { typeOffer } from '../../types/type_offers';
+import { ReviewsList } from '../../components/reviews_list/reviews_list';
+import { Map } from '../../components/map/map';
+import { typeOffer, typeOffersList } from '../../types/type_offers';
 import { typeReviews } from '../../types/type_reviews';
 
 type offerPageProps = {
   offers: typeOffer[];
   reviews: typeReviews[];
+  offersList: typeOffersList[];
 }
 
-function OfferPage({ offers, reviews }: offerPageProps) {
+function OfferPage({ offers, reviews, offersList }: offerPageProps) {
+
+  const [selectedOffer, setSelectedOffer] = useState<typeOffersList | undefined>(
+    undefined
+  );
+
+  const handleListItemHover = (offerId: string) => {
+    const currentOffer = offersList.find((offer) => offer.id === offerId);
+    setSelectedOffer(currentOffer);
+  };
+
   const params = useParams();
 
   const offer = offers.find((item) => item.id === params.id);
+  const nearOffers = offersList.filter((item) => item.id !== params.id);
 
   if (!offer) {
     return <NotFound />;
@@ -99,48 +115,18 @@ function OfferPage({ offers, reviews }: offerPageProps) {
                 </div>
               </div>
               <section className="offer__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-                <ul className="reviews__list">
-                  {reviews.map((review) => (
-                    <li className="reviews__item" key={review.id}>
-                      <div className="reviews__user user">
-                        <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                          <img className="reviews__avatar user__avatar" src={review.user.avatarUrl} width="54" height="54" alt="Reviews avatar" />
-                        </div>
-                        <span className="reviews__user-name">
-                          {review.user.name}
-                        </span>
-                      </div>
-                      <div className="reviews__info">
-                        <div className="reviews__rating rating">
-                          <div className="reviews__stars rating__stars">
-                            <span style={{ width: `${Math.round(review.rating) * 100 / 5}%` }}></span>
-                            <span className="visually-hidden">Rating</span>
-                          </div>
-                        </div>
-                        <p className="reviews__text">
-                          {review.comment}
-                        </p>
-                        <time className="reviews__time" dateTime={review.date}>{review.date}</time>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <CommentsForm />
+                <ReviewsList reviews={reviews} />
               </section>
             </div>
           </div>
-          <section className="offer__map map"></section>
+          <section className="offer__map map">
+            <Map block={ BlockName.Offer } city={offer.city} offers={nearOffers} selectedOffer={ selectedOffer } />
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <div className="near-places__list places__list">
-              <article className="near-places__card place-card"></article>
-              <Card />
-              <Card />
-              <Card />
-            </div>
+            <CardList offersList={nearOffers} onListCardHover={handleListItemHover} />
           </section>
         </div>
       </main>
