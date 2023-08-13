@@ -1,5 +1,22 @@
 import { useState } from 'react';
 
+// function ArrayInSomeNumber ({someNumber}) {
+//   const blocks = Array.from({length: someNumber}, () => '')
+
+//     return(
+//       <div className='anyBlock'>
+//         {blocks.map(index) => {
+//           const keyValue = `blockNumber-${index}`;
+
+//           return <div key={keyValue} className='someBlockHaveNumber'/>
+//         }
+
+//         }
+//       </div>
+//     )
+// }
+
+
 function TestExample() {
 
   const [count, setCount] = useState(0);
