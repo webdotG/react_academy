@@ -4,7 +4,7 @@ import { BlockName } from '../../const';
 import NotFound from '../not_found/not_found_page';
 import CardList from '../../components/card_list/card_list';
 import Header from '../../components/header/header';
-import CommentsForm from '../../components/comments_form/comments_form';
+// import CommentsForm from '../../components/comments_form/comments_form';
 import { ReviewsList } from '../../components/reviews_list/reviews_list';
 import { Map } from '../../components/map/map';
 import { typeOffer, typeOffersList } from '../../types/type_offers';
