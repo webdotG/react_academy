@@ -18,7 +18,6 @@ type appPageProps = {
 }
 
 function App({ rentalOffer, offersList, offers, reviews, city }: appPageProps) {
-
   return (
     <BrowserRouter>
       <Routes>

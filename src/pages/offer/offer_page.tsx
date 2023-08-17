@@ -126,7 +126,7 @@ function OfferPage({ offers, reviews, offersList }: offerPageProps) {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <CardList offersList={nearOffers} onListCardHover={handleListItemHover} />
+            <CardList block={ BlockName.NearOffer} offersList={nearOffers} onListCardHover={handleListItemHover} />
           </section>
         </div>
       </main>
