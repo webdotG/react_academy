@@ -10,26 +10,26 @@ export type typeOfferLocation = {
 };
 
 export type typeHostOffer = {
+  isPro: boolean;
   name: string;
   avatarUrl: string;
-  isPro: boolean;
 }
 
 export type typeOffer = {
   id: string;
-  images: string[];
-  isPremium: boolean;
   title: string;
-  type: string;
-  isFavorite: boolean;
-  rating: number;
   description: string;
-  bedrooms: number;
-  maxAdults: number;
+  type: string;
   price: number;
+  images: string[];
+  city: typeCityOffer;
   goods: string[];
   host: typeHostOffer;
-  city: typeCityOffer;
+  isPremium: boolean;
+  isFavorite: boolean;
+  rating: number;
+  bedrooms: number;
+  maxAdults: number;
   location: typeOfferLocation;
 };
 
@@ -38,6 +38,7 @@ export type typeOffersList = {
   image: string;
   price: number;
   isFavorite: boolean;
+  isPremium: boolean;
   rating: number;
   title: string;
   type: string;

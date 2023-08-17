@@ -208,6 +208,10 @@ const mockOffers: typeOffer[] = [
     'bedrooms': 1,
     'maxAdults': 2
   }
+
+
 ];
 
-export default mockOffers;
+export default mockOffers ;
+
+
