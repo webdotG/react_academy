@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-type cardProps = {
+type typeCardProps = {
   id: number;
   image: string;
   price: number;
@@ -15,7 +15,7 @@ type cardProps = {
 }
 
 
-function Card({ id, image, price, isPremium, rating, title, type, block, onListCardHover }: cardProps) {
+function Card({ id, image, price, isPremium, rating, title, type, block, onListCardHover }: typeCardProps) {
 
   const [, setOfferId] = useState('');
 
