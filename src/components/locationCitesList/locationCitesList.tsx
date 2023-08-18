@@ -11,7 +11,7 @@ type typeCitiesListProps = {
 function LocationSitesList({ selectedCity }: typeCitiesListProps) {
 
   const dispatch = useAppDispatch();
-
+  console.log(selectedCity);
   return (
     <ul className="locations__list tabs__list">
       {CITIES_LOCATION.map((city) => (
@@ -28,4 +28,4 @@ function LocationSitesList({ selectedCity }: typeCitiesListProps) {
   );
 }
 
-export default LocationSitesList;
+export {LocationSitesList};

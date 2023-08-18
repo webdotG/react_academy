@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Sorting from '../../components/sorting/sorting';
-import LocationSitesList from '../../components/locationCitesList/locationCitesList';
+import { LocationSitesList } from '../../components/locationCitesList/locationCitesList';
 import Header from '../../components/header/header';
 import CardList from '../../components/card_list/card_list';
 import { Map } from '../../components/map/map';
 import { useAppSelector } from '../../hooks';
+import { getOffersByCity, sortOffersByType } from '../../utils/utils';
 import { BlockName } from '../../const';
 import { typeOffer ,typeOffersList, typeCityOffer } from '../../types/type_offers';
-
+import { typeSortOffer } from '../../types/sorting';
 
 type mainPageProps = {
   rentalOffer: number;
@@ -17,14 +18,18 @@ type mainPageProps = {
 }
 
 
-function MainPage({ rentalOffer, offersList, offers, city }: mainPageProps) {
+function MainPage({ rentalOffer, offers, city }: mainPageProps) {
   const selectedCity = useAppSelector((state) => state.city);
+  const offersList = useAppSelector((state) => state.offers);
+  const selectedCityOffers = getOffersByCity(selectedCity?.name, offersList);
+  const rentalOffersCount = selectedCityOffers.length;
+
   const [selectedOffer ,setSelectedOffer] = useState<typeOffersList | undefined>(undefined);
 
+  const [activeSort, setActiveSort] = useState<typeSortOffer>('Popular');
 
   const handleListItemHover = (listItemId: string) => {
     const currentOffer = offersList.find((offer) => (offer.id === listItemId));
-    console.log(currentOffer);
     setSelectedOffer(currentOffer);
   };
 
@@ -43,10 +48,10 @@ function MainPage({ rentalOffer, offersList, offers, city }: mainPageProps) {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{rentalOffer} mainP places to stay in Amsterdam</b>
-              <Sorting />
+              <b className="places__found"> { rentalOffersCount } places to stay in { selectedCity?.name }</b>
+              <Sorting activeSorting={ activeSort } onChange={ (newSorting) => setActiveSort(newSorting) } />
               <div className="cities__places-list places__list tabs__content">
-                < CardList block={ BlockName.AllPages } offersList={offersList} onListCardHover={handleListItemHover} />
+                <CardList block={ BlockName.AllPages } offersList={ sortOffersByType(selectedCityOffers, activeSort) } onListCardHover={ handleListItemHover } />
               </div>
             </section>
             <div className="cities__right-section">
