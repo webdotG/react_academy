@@ -1,15 +1,12 @@
 import { typeCityOffer } from './types/type_offers';
 
-const Setting = {
-  RentalOffersCount : 312,
-} as const;
-
 const AppRoute = {
   Main : '/',
   Login : '/login',
   Favorites : '/favorites',
   Offer : '/offer',
 } as const;
+
 
 const AuthorizationStatus = {
   Auth : 'AUTH',
@@ -24,6 +21,8 @@ const BlockName = {
   NearOfferList: 'near-places__list',
   NearOffer: 'near-places',
 } as const;
+
+const STARTS_COUNT = 5;
 
 const CITIES_LOCATION : typeCityOffer[] = [
   {
@@ -87,4 +86,4 @@ const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/java
 
 const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
-export { Setting, AppRoute, AuthorizationStatus, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, BlockName, CITIES_LOCATION, SortOffersType};
+export { STARTS_COUNT, AppRoute, AuthorizationStatus, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, BlockName, CITIES_LOCATION, SortOffersType};

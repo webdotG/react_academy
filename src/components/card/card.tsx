@@ -1,6 +1,7 @@
-import { MouseEvent } from 'react';
 import { useState } from 'react';
+import { MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { AppRoute, STARTS_COUNT } from '../../const';
 
 type typeCardProps = {
   id: number;
@@ -37,8 +38,8 @@ function Card({ id, image, price, isPremium, rating, title, type, block, onListC
       onMouseOut={handleCardOut}
     >
       {isPremium && (<div className="place-card__mark"><span>Premium</span></div>)}
-      <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to={`/offer/${id}`}>
+      <div className={`${block}__image-wrapper place-card__image-wrapper`}>
+        <Link to={ `${AppRoute.Offer}/${id}` }>
           <img className="place-card__image" src={image} width="260" height="200" alt="Place image" />
         </Link>
       </div>
@@ -57,12 +58,12 @@ function Card({ id, image, price, isPremium, rating, title, type, block, onListC
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${Math.round(rating) * 100 / 5}%` }}></span>
+            <span style={{ width: `${ Math.round(rating) * 100 / STARTS_COUNT}%` }}></span>
             <span className="visually-hidden">{rating}</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${id}`}>{title}</Link>
+          <Link to={`${AppRoute.Offer}/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

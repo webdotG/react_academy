@@ -7,18 +7,11 @@ import { Map } from '../../components/map/map';
 import { useAppSelector } from '../../hooks';
 import { getOffersByCity, sortOffersByType } from '../../utils/utils';
 import { BlockName } from '../../const';
-import { typeOffer ,typeOffersList, typeCityOffer } from '../../types/type_offers';
+import { typeOffersList } from '../../types/type_offers';
 import { typeSortOffer } from '../../types/sorting';
 
-type mainPageProps = {
-  rentalOffer: number;
-  offersList: typeOffersList[];
-  city: typeCityOffer;
-  offers: typeOffer[];
-}
 
-
-function MainPage({ rentalOffer, offers, city }: mainPageProps) {
+function MainPage() {
   const selectedCity = useAppSelector((state) => state.city);
   const offersList = useAppSelector((state) => state.offers);
   const selectedCityOffers = getOffersByCity(selectedCity?.name, offersList);
@@ -56,7 +49,7 @@ function MainPage({ rentalOffer, offers, city }: mainPageProps) {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map block={ BlockName.AllPages } city={city} offers={offers} selectedOffer={selectedOffer} />
+                <Map block={ BlockName.AllPages } city={ selectedCity } offers={ selectedCityOffers } selectedOffer={ selectedOffer } />
               </section>
             </div>
           </div>

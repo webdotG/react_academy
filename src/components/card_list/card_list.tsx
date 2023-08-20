@@ -24,7 +24,9 @@ function CardList({ block, offersList, onListCardHover }: CardListProps) {
           isPremium={item.isPremium}
           rating={item.rating}
           block={block}
-          onListCardHover={onListCardHover}/>))}
+          onListCardHover={onListCardHover}
+        />
+      ))}
     </div>
   );
 }

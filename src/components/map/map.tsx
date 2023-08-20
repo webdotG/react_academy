@@ -5,8 +5,8 @@ import { typeCityOffer, typeOffer, typeOffersList } from '../../types/type_offer
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 import 'leaflet/dist/leaflet.css';
 
-type MapProps = {
-  city: typeCityOffer;
+type typeMapProps = {
+  city: typeCityOffer | undefined;
   offers: typeOffersList[] | typeOffer[];
   selectedOffer: typeOffersList | typeOffer | undefined;
   block: string;
@@ -24,7 +24,7 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({block, city, offers, selectedOffer }: MapProps) {
+function Map({block, city, offers, selectedOffer }: typeMapProps) {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -33,8 +33,8 @@ function Map({block, city, offers, selectedOffer }: MapProps) {
       const markerLayer = layerGroup().addTo(map);
       offers.forEach((offer) => {
         const marker = new Marker({
-          lat: offer.city.location.latitude,
-          lng: offer.city.location.longitude
+          lat: offer.location.latitude,
+          lng: offer.location.longitude
         });
 
         marker

@@ -10,19 +10,19 @@ import { Map } from '../../components/map/map';
 import { typeOffer, typeOffersList } from '../../types/type_offers';
 import { typeReviews } from '../../types/type_reviews';
 
-type offerPageProps = {
+type typeOfferPageProps = {
   offers: typeOffer[];
   reviews: typeReviews[];
   offersList: typeOffersList[];
 }
 
-function OfferPage({ offers, reviews, offersList }: offerPageProps) {
+function OfferPage({ offers, reviews, offersList }: typeOfferPageProps) {
 
   const [selectedOffer, setSelectedOffer] = useState<typeOffersList | undefined>(
     undefined
   );
 
-  const handleListItemHover = (offerId: string) => {
+  const handleListCardHover = (offerId: string) => {
     const currentOffer = offersList.find((offer) => offer.id === offerId);
     setSelectedOffer(currentOffer);
   };
@@ -126,7 +126,7 @@ function OfferPage({ offers, reviews, offersList }: offerPageProps) {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <CardList block={ BlockName.NearOffer} offersList={nearOffers} onListCardHover={handleListItemHover} />
+            <CardList block={ BlockName.NearOffer} offersList={nearOffers} onListCardHover={handleListCardHover} />
           </section>
         </div>
       </main>
