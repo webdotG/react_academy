@@ -20,7 +20,7 @@ function CardList({ block, offersList, onListCardHover }: CardListProps) {
           title={item.title}
           type={item.type}
           price={item.price}
-          image={item.image}
+          image={item.image }
           isPremium={item.isPremium}
           rating={item.rating}
           block={block}
