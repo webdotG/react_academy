@@ -1,8 +1,6 @@
 import { typeCityOffer } from './types/type_offers';
 
-const Setting = {
-  RentalOffersCount : 312,
-} as const;
+const STARTS_COUNT = 5;
 
 const AppRoute = {
   Main : '/',
@@ -11,11 +9,12 @@ const AppRoute = {
   Offer : '/offer',
 } as const;
 
-const AuthorizationStatus = {
-  Auth : 'AUTH',
-  NoAuth : 'NO_AUTH',
-  Unknown : 'UNKNOWN',
-} as const;
+
+enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
 
 const BlockName = {
   AllPages: 'cities',
@@ -24,6 +23,9 @@ const BlockName = {
   NearOfferList: 'near-places__list',
   NearOffer: 'near-places',
 } as const;
+
+const TIMEOUT_SHOW_ERROR = 2000;
+
 
 const CITIES_LOCATION : typeCityOffer[] = [
   {
@@ -83,8 +85,12 @@ const SortOffersType = {
   TopRated : 'Top rated first',
 };
 
-const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+const APIRoute = {
+  Offers : '/offers',
+  Login : '/login',
+  Logout : '/logout',
+};
+const URL_MARKER_DEFAULT = 'img/pin.svg';
 
-const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
-
-export { Setting, AppRoute, AuthorizationStatus, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, BlockName, CITIES_LOCATION, SortOffersType};
+const URL_MARKER_CURRENT = 'img/pin-active.svg';
+export { AppRoute, AuthorizationStatus, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, BlockName, STARTS_COUNT, CITIES_LOCATION, SortOffersType, APIRoute, TIMEOUT_SHOW_ERROR };
