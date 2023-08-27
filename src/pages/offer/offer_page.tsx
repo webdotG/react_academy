@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BlockName } from '../../const';
@@ -37,8 +38,10 @@ function OfferPage({ offers, reviews, offersList }: offerPageProps) {
   }
   return (
     <div>
+      <Helmet>
+        <title>Предложение по аренде</title>
+      </Helmet>
       <Header />
-
       <main className="page__main page__main--offer">
         <section className="offer">
           <div className="offer__gallery-container container">
