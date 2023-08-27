@@ -1,4 +1,3 @@
-
 import Card from '../card/card';
 import { BlockName } from '../../const';
 import { typeOffersList } from '../../types/type_offers';
